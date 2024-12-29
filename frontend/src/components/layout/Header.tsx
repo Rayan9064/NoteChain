@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Menu, X, ArrowUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +71,7 @@ const Header = () => {
               </button>
 
               <button
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => { setIsModalOpen(true), navigate('/courses')}}
                 className="px-4 py-2 bg-white/30 backdrop-blur-md border border-gray-200/50 shadow-lg text-gray-800 rounded-lg hover:bg-indigo-700 hover:text-white transition-colors"
               >
                 Get Started
